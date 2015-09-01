@@ -24,7 +24,7 @@ PREFIX = File.expand_path(File.join(File.dirname(__FILE__), "pkg"))
 $LDFLAGS << " -Wl,-rpath,#{File.join(PREFIX, "lib")}"
 
 FileUtils.cd(MARISA_ROOT) do
-  sys "./configure --enable-sse3 --prefix='#{PREFIX}'"
+  sys "./configure --prefix='#{PREFIX}'"
   sys "make"
   sys "make install"
 end
