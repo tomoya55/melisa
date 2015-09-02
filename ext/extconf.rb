@@ -29,8 +29,10 @@ FileUtils.cd(MARISA_ROOT) do
   sys "make install"
 end
 
+$CFLAGS.sub!('-Werror=format-security', '')
+$CXXFLAGS.sub!('-Werror=format-security', '')
 $CFLAGS   << " -I#{File.join(PREFIX, 'include')}"
-$CPPFLAGS << " -I#{File.join(PREFIX, 'include')}"
+$CXXFLAGS << " -I#{File.join(PREFIX, 'include')}"
 $LDFLAGS  << " -L#{File.join(PREFIX, 'lib')} -lmarisa"
 
 create_makefile("marisa")
